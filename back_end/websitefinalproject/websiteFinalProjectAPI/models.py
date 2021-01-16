@@ -12,4 +12,5 @@ class Author(models.Model):
 class Quote(models.Model):
     quote_id = models.IntegerField(max_length=50)
     author = models.ForeignKey(Author, on_delete=models.PROTECT)
+    text = models.CharField(max_length=200)
 
