@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import {Layout, Space} from 'antd';
+import Navbar from './components/Navbar'
+import QuoteList from './components/QuoteList'
+import Footer from './components/Footer'
 
+const {Header, Content} = Layout
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      
+      <Layout>
+        <Header style={{position: 'fixed', top:0, width: '100%', zIndex: 1000}}>
+          <Navbar signedIn={false} style={{position: 'fixed', top: 0}}/>
+        </Header>
+        <Content>
+          <QuoteList />
+        </Content>
+      </Layout>
+    </>
   );
 }
 
