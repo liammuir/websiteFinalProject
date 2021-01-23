@@ -29,19 +29,11 @@ const SignInForm = ({onSubmitCallback}) => {
     
     return (
         <Form {...layout} form={form} name="demo-form" onFinish={onFinish}>
-            <Form.Item name="username" label="Username" rules={[{required: true}]}>
-                <Input/>
+            <Form.Item name="text" rules={[{required: true}]}>
+                <Input.TextArea rows={4}/>
             </Form.Item>
-            <Form.Item name="password" label="Password" rules={[{required: true}]}>
-                <Input.Password
-                    iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
-                />
-            </Form.Item>
-            <Form.Item {...tailLayout}>
-                <Space large>
-                    <Button type="primary" htmlType="submit">Log In</Button>
-                    <Button htmlType="button" onClick={onReset}>Reset</Button>
-                </Space>
+            <Form.Item>
+                <Button htmlType="submit" type="primary">Submit</Button>
             </Form.Item>
         </Form>
     )

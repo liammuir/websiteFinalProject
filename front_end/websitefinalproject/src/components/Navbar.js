@@ -14,7 +14,7 @@ const Navbar = ({signedIn,username}) => {
     return (
         <div>
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                <h1 style={{color: 'white'}}>Heading</h1>
+                <h1 style={{color: 'white'}}>Title Here</h1>
                 <Space>
                     <Button type="primary" onClick={() => {toggleSignInModal()}}>Sign In</Button>
                     <Button type="secondary" onClick={() => {toggleNewUserModal()}}>Create Account</Button>

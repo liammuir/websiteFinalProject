@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import {Modal,Button,Typography,Form} from 'antd';
-import NewUserForm from './NewUserForm';
+import NewQuoteForm from './NewQuoteForm';
 const {Title} = Typography
 
-const NewUserModal = ({visible,setVisible}) => {
+const NewQuoteModal = ({visible,setVisible}) => {
     const toggleModal = () => {setVisible(!visible)}
     return (
         <React.Fragment>
@@ -13,11 +13,11 @@ const NewUserModal = ({visible,setVisible}) => {
                 footer={null}
                 centered
             >
-                <Title>Create Account</Title>
-                <NewUserForm /> 
+                <Title>New Quote</Title>
+                <NewQuoteForm /> 
             </Modal>
         </React.Fragment>
     )
 }
 
-export default NewUserModal
+export default NewQuoteModal

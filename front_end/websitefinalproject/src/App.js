@@ -3,6 +3,8 @@ import {Layout, Space,BackTop } from 'antd';
 import Navbar from './components/Navbar'
 import QuoteList from './components/QuoteList'
 import Footer from './components/Footer'
+import NewQuoteButton from './components/NewQuoteButton'
+
 import react, {useState} from 'react';
 const toTopStyle = {
   height: 40,
@@ -21,9 +23,8 @@ function App() {
   const [quotes, setQuotes] = useState([{text:'test quote text', author: 'test user', quoteId:223920492}])
 
   return (
-    <>
-      
-      <Layout>
+    <div>
+      <Layout className="maincontent">
         <Header style={{position: 'fixed', top:0, width: '100%', zIndex: 1000}}>
           <Navbar signedIn={false} style={{position: 'fixed', top: 0}}/>
         </Header>
@@ -34,7 +35,8 @@ function App() {
       <BackTop>
         <div style={toTopStyle}>Top</div>
       </BackTop>
-    </>
+      <NewQuoteButton/>
+    </div>
   );
 }
 
