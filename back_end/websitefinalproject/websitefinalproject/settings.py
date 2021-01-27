@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'websiteFinalProjectAPI'
+    'websiteFinalProjectAPI',
+    'user_management',
+    'rest_framework_simplejwt.token_blacklist'
 ]
 
 MIDDLEWARE = [
@@ -73,6 +75,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'websitefinalproject.wsgi.application'
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -126,3 +131,10 @@ STATIC_URL = '/static/'
 # CORS_ORIGIN_WHITELIST = (
 #      'localhost:3000/'
 #  )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
+    'DEFAULT_AUTHENTICATION_CLASSES' : ('rest_framework_simplejwt.authentication.JWTAuthentication',)
+}
+
+AUTH_USER_MODEL = "users.NewUser"
