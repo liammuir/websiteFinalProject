@@ -2,7 +2,7 @@ import './App.css';
 import {Layout, Space,BackTop } from 'antd';
 import Navbar from './components/Navbar'
 import QuoteList from './components/QuoteList'
-import Footer from './components/Footer'
+import AppFooter from './components/AppFooter'
 import NewQuoteButton from './components/NewQuoteButton'
 
 import react, {useState} from 'react';
@@ -17,21 +17,16 @@ const toTopStyle = {
   fontSize: 14,
 };
 
-const {Header, Content} = Layout
 
 function App() {
-  const [quotes, setQuotes] = useState([{text:'test quote text', author: 'test user', quoteId:223920492}])
+  const [quote, setQuote] = useState({text:'test quote text', author: 'test user', quoteId:223920492})
 
   return (
     <div>
-      <Layout className="maincontent">
-        <Header style={{position: 'fixed', top:0, width: '100%', zIndex: 1000}}>
-          <Navbar signedIn={false} style={{position: 'fixed', top: 0}}/>
-        </Header>
-        <Content>
-          <QuoteList quotes={quotes}/>
-        </Content>
-      </Layout>
+      <Navbar signedIn={false} style={{position: 'fixed', top:0, width: '100%', zIndex: 1000}}/>
+      <div style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems: 'center', height:'90vh'}}>
+        <QuoteList quote={quote}/>
+      </div>
       <BackTop>
         <div style={toTopStyle}>Top</div>
       </BackTop>
