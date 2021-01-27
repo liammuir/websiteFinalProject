@@ -1,7 +1,7 @@
 import react from 'react'
 import {Space} from 'antd'
 
-const Footer = ({signedIn}) => {
+const AppFooter = ({signedIn}) => {
     return (
         <Space style={{backgroundColor: 'grey'}}>
             this is a footer
@@ -9,4 +9,4 @@ const Footer = ({signedIn}) => {
     )
 }
 
-export default Footer
+export default AppFooter
