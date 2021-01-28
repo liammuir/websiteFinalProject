@@ -5,7 +5,7 @@ from django.urls import path, include
 
 router = routers.DefaultRouter()
 router.register('quotes',views.QuoteView)
-router.register('authors',views.AuthorView)
+router.register('quote',views.RandQuoteView, basename='Quotes')
 
 urlpatterns = [
     path('',include(router.urls)),
