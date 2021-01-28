@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Button,Typography,Form, Input, Space} from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
+import {login} from './utils/UserManagement.js'
 
 const {Title} = Typography
 
@@ -13,14 +14,15 @@ const tailLayout = {
     wrapperCol: {offset: 8, span: 16}
 }
 
-const SignInForm = ({onSubmitCallback}) => {
+const SignInForm = ({onSubmitCallback,setSignedIn}) => {
     const [form] = Form.useForm();
     
     const onReset = () => form.resetFields()
     const onFinish = (values) => {
         console.log(values)
         try{
-            onSubmitCallback(values);
+            login(values,setSignedIn)
+            onSubmitCallback();
         }catch(err){
             console.log("Error: ",err)
         }
@@ -29,7 +31,7 @@ const SignInForm = ({onSubmitCallback}) => {
     
     return (
         <Form {...layout} form={form} name="demo-form" onFinish={onFinish}>
-            <Form.Item name="username" label="Username" rules={[{required: true}]}>
+            <Form.Item name="email" label="Email" rules={[{required: true, type: "email"}]}>
                 <Input/>
             </Form.Item>
             <Form.Item name="password" label="Password" rules={[{required: true}]}>

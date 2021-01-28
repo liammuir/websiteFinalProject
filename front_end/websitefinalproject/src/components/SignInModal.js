@@ -4,7 +4,7 @@ import SignInForm from './SignInForm';
 const {Title} = Typography
 
 
-const SignInModal = ({visible,setVisible}) => {
+const SignInModal = ({visible,setVisible,setSignedIn}) => {
     const toggleModal = () => {setVisible(!visible)}
     
     return (
@@ -16,7 +16,7 @@ const SignInModal = ({visible,setVisible}) => {
                 centered
             >
                 <Title centered>Sign In</Title>
-                <SignInForm/>
+                <SignInForm setSignedIn={setSignedIn} onSubmitCallback={toggleModal}/>
             </Modal>
         </React.Fragment>
     )

@@ -3,8 +3,13 @@ import {Modal,Button,Typography,Form} from 'antd';
 import NewUserForm from './NewUserForm';
 const {Title} = Typography
 
-const NewUserModal = ({visible,setVisible}) => {
+const NewUserModal = ({visible,setVisible,setSignedIn,signedIn}) => {
+    
     const toggleModal = () => {setVisible(!visible)}
+    const callback = () => {
+        toggleModal()
+        setSignedIn(false)
+    }
     return (
         <React.Fragment>
             <Modal 
@@ -14,7 +19,7 @@ const NewUserModal = ({visible,setVisible}) => {
                 centered
             >
                 <Title>Create Account</Title>
-                <NewUserForm /> 
+                <NewUserForm signedIn={signedIn} setSignedIn={setSignedIn} onSubmitCallback={callback} /> 
             </Modal>
         </React.Fragment>
     )
