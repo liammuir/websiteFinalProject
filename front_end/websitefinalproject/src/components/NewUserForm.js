@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Button,Typography,Form, Input, Space} from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-
+import {new_user} from './utils/UserManagement'
 const {Title} = Typography
 
 const layout = {
@@ -13,14 +13,15 @@ const tailLayout = {
     wrapperCol: {offset: 8, span: 16}
 }
 
-const NewUserForm = ({onSubmitCallback}) => {
+const NewUserForm = ({onSubmitCallback,setSignedIn}) => {
     const [form] = Form.useForm();
     
     const onReset = () => form.resetFields()
     const onFinish = (values) => {
         console.log(values)
         try{
-            onSubmitCallback(values);
+            new_user({user_name: values.username, password: values.password, email: values.email, is_active: true},setSignedIn)
+            onSubmitCallback();
         }catch(err){
             console.log("Error: ",err)
         }
