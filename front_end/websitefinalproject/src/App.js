@@ -6,7 +6,9 @@ import AppFooter from './components/AppFooter'
 import NewQuoteButton from './components/NewQuoteButton'
 import react, {useState, useEffect} from 'react';
 import {refresh} from './components/utils/UserManagement'
-import { set } from 'js-cookie';
+import { get, set } from 'js-cookie';
+import {get_quote} from './components/utils/QuoteManager'
+import RefreshQuoteButton from './components/RefreshQuoteButton'
 
 const toTopStyle = {
   height: 40,
@@ -21,16 +23,12 @@ const toTopStyle = {
 
 
 function App() {
-  const [quote, setQuote] = useState({text:'test quote text', author: 'test user', quoteId:223920492})
+  const [quote, setQuote] = useState({text:'No data', author: 'no data'})
   const [signedIn, setSignedIn] = useState(false)
-
-  useEffect (() => {
-    let tokenPresent = refresh()
-    if (tokenPresent === true){
-      setSignedIn(true)
-    }else{
-      setSignedIn(false)
-    }
+  console.log("quote: ",quote)
+  useEffect ( () => {
+    refresh(setSignedIn)
+    get_quote(setQuote)
   }, [])
   return (
     <div>
@@ -41,7 +39,8 @@ function App() {
       <BackTop>
         <div style={toTopStyle}>Top</div>
       </BackTop>
-      <NewQuoteButton/>
+      <NewQuoteButton signedIn={signedIn}/>
+      <RefreshQuoteButton setQuote={setQuote}/>
     </div>
   );
 }
