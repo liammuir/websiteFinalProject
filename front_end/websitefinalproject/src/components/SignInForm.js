@@ -19,6 +19,7 @@ const SignInForm = ({onSubmitCallback,setSignedIn}) => {
     
     const onReset = () => form.resetFields()
     const onFinish = (values) => {
+        form.resetFields()
         console.log(values)
         try{
             login(values,setSignedIn)
