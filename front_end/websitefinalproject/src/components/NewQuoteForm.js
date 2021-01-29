@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import {Button,Typography,Form, Input, Space} from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-
+import QuoteList from './QuoteList';
+import {send_quote} from './utils/QuoteManager'
 const {Title} = Typography
 
 const layout = {
@@ -15,12 +16,13 @@ const tailLayout = {
 
 const SignInForm = ({onSubmitCallback}) => {
     const [form] = Form.useForm();
-    
     const onReset = () => form.resetFields()
+
     const onFinish = (values) => {
         console.log(values)
         try{
-            onSubmitCallback(values);
+            onSubmitCallback();
+            send_quote(values)
         }catch(err){
             console.log("Error: ",err)
         }

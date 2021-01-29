@@ -24,16 +24,25 @@ const refresh = (setSignedIn) => {
         axios.post('http://localhost:8000/api/token/refresh/', {refresh: refreshToken})
         .then( res=> {
             Cookies.set('accessToken', res.data.access, { expires: new Date(Date.now() + 5 * 60000) });
-            setSignedIn(true)
+            if(setSignedIn){
+                setSignedIn(true)
+            }
+            return true
         })
         .catch(err=>{
             Cookies.remove('refreshToken')
             Cookies.remove('accessToken')
-            setSignedIn(false)
+            if(setSignedIn){
+                setSignedIn(false)
+            }
+            return false
         })
     }else{
         console.log('token not found')
-        setSignedIn(false)
+        if(setSignedIn){
+            setSignedIn(false)
+        }
+        return false
     }
 }
 

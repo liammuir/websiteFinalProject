@@ -14,7 +14,7 @@ const NewQuoteModal = ({visible,setVisible}) => {
                 centered
             >
                 <Title>New Quote</Title>
-                <NewQuoteForm /> 
+                <NewQuoteForm  onSubmitCallback={toggleModal}/> 
             </Modal>
         </React.Fragment>
     )

@@ -19,6 +19,7 @@ const NewUserForm = ({onSubmitCallback,setSignedIn}) => {
     const onReset = () => form.resetFields()
     const onFinish = (values) => {
         console.log(values)
+        form.resetFields()
         try{
             new_user({user_name: values.username, password: values.password, email: values.email, is_active: true},setSignedIn)
             onSubmitCallback();
