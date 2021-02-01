@@ -4,10 +4,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 router = routers.DefaultRouter()
-router.register('quotes',views.QuoteView)
-router.register('quote',views.RandQuoteView, basename='Quotes')
+router.register('quotes',views.QuoteView, basename='Quotes')
+
 
 urlpatterns = [
     path('',include(router.urls)),
+    path('quote',views.get_randquote)
 ]
 
