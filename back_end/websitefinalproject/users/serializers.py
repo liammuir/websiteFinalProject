@@ -2,10 +2,12 @@ from rest_framework import serializers
 from users.models import NewUser
 
 class CustomUserSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model = NewUser
         fields = ('url','email', 'user_name', 'password','is_active')
         extra_kwargs = {'password': {'write_only': True}}
+        lookup_url_kwarg = 'user_name'
     
     def create(self, validated_data):
         password = validated_data.pop('password', None)

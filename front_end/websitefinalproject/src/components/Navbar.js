@@ -17,7 +17,7 @@ const Navbar = ({signedIn,username,setSignedIn}) => {
     return (
         <div>
             <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center',backgroundColor:'darkgrey',paddingLeft:'50px',paddingRight:'50px',height:'75px'}}>
-                <Title style={{textAlign: 'center', margin:0}}>Title</Title>
+                <Title style={{textAlign: 'center', margin:0}}>Quotes from Random People on the Internet</Title>
                 <Space>
                     {signedIn == false && <Button type="primary" onClick={() => {toggleSignInModal()}}>Sign In</Button>}
                     {signedIn == false && <Button type="secondary" onClick={() => {toggleNewUserModal()}}>Create Account</Button>}
