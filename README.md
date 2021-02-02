@@ -16,6 +16,6 @@ Password for testing: admin
 
 Unfortunatly I somehow broke the user creation endpoint on the backend while implementing the user-quote database relationship.
 
-An earlier version of my project will showcase this feature working.
+An earlier version of my project will showcase this feature working. This can be found on the branch feature17 where the user creation endpoints work.
 
-Everying else is functional, including the quote submission endpoint
+Everying else is functional.
