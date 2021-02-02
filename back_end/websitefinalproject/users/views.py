@@ -13,7 +13,7 @@ class CustomUserCreate(APIView):
     permission_classes = [AllowAny]
 
     def post(self, request, format='json'):
-        serializer = CustomUserSerializer(data = request.data)
+        serializer = CustomUserSerializer(data = request.data,context={'request': request})
 
         if serializer.is_valid():
             user = serializer.save()
